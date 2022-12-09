@@ -215,7 +215,6 @@ class HrPayslip(models.Model):
         @param contract: Browse record of contracts
         @return: returns a list of dict containing the input that should be applied for the given contract between date_from and date_to
         """
-        raise UserError(type(date_to))
         res = [(5,0,0)]
         horas_obj = self.env['horas.nomina']
         tipo_de_hora_mapping = {'1':'HEX1', '2':'HEX2', '3':'HEX3'}
@@ -413,7 +412,8 @@ class HrPayslip(models.Model):
                          })
                          res.append(attendances)
                    else:
-                      dias_periodo = date_to - date_from.days + 1
+                      delta_periodo = date_to - date_from
+                      dias_periodo = (delta_periodo.days) + 1
                       total_days = resource_days + leave_days
                       if total_days != dias_periodo:
                          if leave_days == 0  and not nvo_ingreso:
@@ -485,7 +485,8 @@ class HrPayslip(models.Model):
                       else:
                          number_of_days =resource_days * 30.42 / 30
                   else:
-                      dias_periodo = date_to - date_from.days + 1
+                      delta_periodo = date_to - date_from
+                      dias_periodo = (delta_periodo.days) + 1
                       total_days = resource_days + leave_days
                       if total_days != dias_periodo:
                          if leave_days == 0  and not nvo_ingreso:
