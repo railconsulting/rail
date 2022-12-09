@@ -215,6 +215,7 @@ class HrPayslip(models.Model):
         @param contract: Browse record of contracts
         @return: returns a list of dict containing the input that should be applied for the given contract between date_from and date_to
         """
+        raise UserError(type(date_to))
         res = [(5,0,0)]
         horas_obj = self.env['horas.nomina']
         tipo_de_hora_mapping = {'1':'HEX1', '2':'HEX2', '3':'HEX3'}
