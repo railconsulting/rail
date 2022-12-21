@@ -1409,7 +1409,7 @@ class HrPayslip(models.Model):
         certificate_id = certificate_ids.sudo()._get_valid_certificate()
         if not certificate_id:
             return cfdi
-        sello = certificate_id.sudo().get_encrypted_cadena(cadena)
+        sello = certificate_id.sudo()._get_encrypted_cadena(cadena)
         print("SELLO")
         print(sello)
         #tree = objectify.fromstring(xml_comprobante)
