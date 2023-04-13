@@ -1,0 +1,321 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* rail_sale_discount_with_tax
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20221202\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-16 02:20+0000\n"
+"PO-Revision-Date: 2023-02-15 21:35-0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.2.2\n"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<span class=\"oe_inline\">&amp;nbsp;%</span>"
+msgstr "<span class=\"oe_inline\">&amp;nbsp;%</span>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+msgid "<strong> Discount </strong>"
+msgstr "<strong> Descuento </strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+msgid "<strong> Discount Amount</strong>"
+msgstr "<strong> Descuento</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<strong> Discount Method </strong>"
+msgstr "<strong>Método descuento</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+msgid "<strong> Discount Method</strong>"
+msgstr "<strong> Método descuento</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<strong>Discount Amount</strong>"
+msgstr "<strong>Descuento</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<strong>Discount Method</strong>"
+msgstr "<strong>Método descuento</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<strong>Discount Type:</strong>"
+msgstr "<strong>Tipo descuento:</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<strong>Discount</strong>"
+msgstr "<strong>Descuento</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<strong>Line Discount</strong>"
+msgstr "<strong>Descuento</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<strong>Taxes</strong>"
+msgstr "<strong>Impuestos</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_invoice_discount_inherit
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.report_sale_discount_inherit
+msgid "<strong>Untaxed Amount</strong>"
+msgstr "<strong>Importe sin impuestos</strong>"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model,name:rail_sale_discount_with_tax.model_res_company
+msgid "Companies"
+msgstr "Empresas"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model,name:rail_sale_discount_with_tax.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes de configuración"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__discount_amt
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__discount_amt
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__discount_amt
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order__discount_amt
+msgid "Discount"
+msgstr "Descuento"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__discount_account_id
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__discount_account_id
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__discount_account_id
+msgid "Discount Account"
+msgstr "Descuento"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__discount_amount
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__discount_amount
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move_line__discount_amount
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__discount_amount
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order__discount_amount
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order_line__discount_amount
+msgid "Discount Amount"
+msgstr "Descuento"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_res_config_settings__tax_discount_policy
+msgid "Discount Applies On"
+msgstr "Aplicar descuento a:"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__discount_type
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__discount_type
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move_line__discount_type
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__discount_type
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order__discount_type
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order_line__discount_type
+msgid "Discount Applies to"
+msgstr "Aplicar descuento a:"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move_line__discount_amt
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order_line__discount_amt
+msgid "Discount Final Amount"
+msgstr "Total descuento"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__discount_amount_line
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__discount_amount_line
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__discount_amount_line
+msgid "Discount Line"
+msgstr "Descuento"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__discount_method
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__discount_method
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move_line__discount_method
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__discount_method
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order__discount_method
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order_line__discount_method
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.view_order_invoice_discount_form
+msgid "Discount Method"
+msgstr "Metodo descuento"
+
+#. module: rail_sale_discount_with_tax
+#: model_terms:ir.ui.view,arch_db:rail_sale_discount_with_tax.res_config_settings_view_form_discount
+msgid "Discount Setting"
+msgstr "Aplicación de descuentos"
+
+#. module: rail_sale_discount_with_tax
+#. odoo-python
+#: code:addons/rail_sale_discount_with_tax/models/sale.py:0
+#, python-format
+msgid "Down Payments"
+msgstr "Anticipos"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move_line__exclude_from_invoice_tab
+msgid "Exclude From Invoice Tab"
+msgstr "Excluir de facturas"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__account_move__discount_method__fix
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__account_move_line__discount_method__fix
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__sale_order__discount_method__fix
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__sale_order_line__discount_method__fix
+msgid "Fixed"
+msgstr "Monto"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move_line__flag
+msgid "Flag"
+msgstr "Flag"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__account_move__discount_type__global
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__sale_order__discount_type__global
+msgid "Global"
+msgstr "Total"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model,name:rail_sale_discount_with_tax.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento de diario"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model,name:rail_sale_discount_with_tax.model_account_move_line
+msgid "Journal Item"
+msgstr "Apunte de diario"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__discount_amt_line
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__discount_amt_line
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__discount_amt_line
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order__discount_amt_line
+msgid "Line Discount"
+msgstr "Descuento"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__account_move__discount_type__line
+msgid "Move Line"
+msgstr "Linea"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__sale_order__discount_type__line
+msgid "Order Line"
+msgstr "Linea pedido"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__account_move__discount_method__per
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__account_move_line__discount_method__per
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__sale_order__discount_method__per
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__sale_order_line__discount_method__per
+msgid "Percentage"
+msgstr "Porcentaje"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order__report_total
+msgid "Report Untaxed Amount"
+msgstr "Importe sin impuestos"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model,name:rail_sale_discount_with_tax.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Factura de anticipo de ventas"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model,name:rail_sale_discount_with_tax.model_sale_order
+msgid "Sales Order"
+msgstr "Orden de venta"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model,name:rail_sale_discount_with_tax.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de la orden de venta"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__amount_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__amount_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__amount_tax
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__res_company__tax_discount_policy__tax
+msgid "Tax Amount"
+msgstr "Monto con impuestos"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order_line__is_apply_on_discount_amount
+msgid "Tax Apply After Discount"
+msgstr "Aplicar impuestos después de descuento"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_res_company__tax_discount_policy
+msgid "Tax Discount Policy"
+msgstr "Politica de descuentos"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,help:rail_sale_discount_with_tax.field_account_move_line__exclude_from_invoice_tab
+msgid ""
+"Technical field used to exclude some lines from the invoice_line_ids tab in "
+"the form view."
+msgstr ""
+"Campo técnico para exluir registros del campo invoice_line_ids en la vista"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__amount_total
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__amount_total
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__amount_total
+msgid "Total"
+msgstr "Total"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields.selection,name:rail_sale_discount_with_tax.selection__res_company__tax_discount_policy__untax
+msgid "Untax Amount"
+msgstr "Monto sin impuestos"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__amount_untaxed
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__amount_untaxed
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__amount_untaxed
+msgid "Untaxed Amount"
+msgstr "Importe sin impuestos"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__count_total
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__count_total
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__count_total
+msgid "tax total"
+msgstr "Total impuestos"
+
+#. module: rail_sale_discount_with_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_bank_statement_line__config_inv_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_move__config_inv_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_account_payment__config_inv_tax
+#: model:ir.model.fields,field_description:rail_sale_discount_with_tax.field_sale_order__config_tax
+msgid "total disc tax"
+msgstr "Total descuento impuestos"

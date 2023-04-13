@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+    <record id="rail_automatic_pricelist_sale_form" model="ir.ui.view">
+      <field name="name">rail.automatic.pricelist.sale.form</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='note']" position="before">
+          <field name="total_qty" readonly="1" force_save="1" style="color: blue;"/>
+        </xpath>
+      </field>
+    </record>
+    </data>
+</odoo>

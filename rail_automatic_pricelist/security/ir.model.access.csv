@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rail_automatic_pricelist_rail_automatic_pricelist,rail_automatic_pricelist.rail_automatic_pricelist,model_rail_automatic_pricelist_rail_automatic_pricelist,base.group_user,1,1,1,1

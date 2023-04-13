@@ -1,0 +1,15 @@
+<odoo>
+    <record id="urban_inherit_purchase_oder_form" model="ir.ui.view">
+        <field name="name">urban.inherit.purchase.order.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='button_confirm']" position="attributes">
+                <attribute name="groups">rail_urban_custom_agreements.group_urban_create_edit_all</attribute>
+            </xpath>
+            <xpath expr="//button[@name='button_confirm'][2]" position="attributes">
+                <attribute name="groups">rail_urban_custom_agreements.group_urban_create_edit_all</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

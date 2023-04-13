@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+    <record id="rail_automatic_pricelist" model="ir.ui.view">
+      <field name="name">rail.automatic.pricelist</field>
+      <field name="model">product.pricelist</field>
+      <field name="inherit_id" ref="product.product_pricelist_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//group[1]" position="inside">
+          <group name="qty_settings">
+            <field name="min_quantity"/>
+            <field name="max_quantity"/>
+          </group>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
