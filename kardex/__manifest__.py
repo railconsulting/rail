@@ -9,7 +9,7 @@
     'website': '',
     'depends' : [ 'stock' ],
     'data' : [
-        'views/report.xml',
+        'wizard/asistente_kardex.xml',
         'views/reporte_kardex.xml',
         'views/report_stockinventory.xml',
         'security/ir.model.access.csv',
