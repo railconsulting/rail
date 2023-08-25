@@ -33,7 +33,7 @@ class PurchaseOrderWizard(models.TransientModel):
                             'product_id': line.product_id.id,
                             'description': line.description,
                             'quantity': line.remain_quantity,
-                            'product_uom': line.uom_id.id,
+                            'product_uom': line.uom_id.id if line.uom_id else line.product_id.uom_id.id,
                             'qty_available': line.product_id.qty_available,
                             'price_unit': line.cost_price,
                             'job_cost_line_id': line.id
@@ -57,7 +57,7 @@ class PurchaseOrderWizard(models.TransientModel):
                     'name': line_id.description,
                     'price_unit': line_id.price_unit,
                     'product_qty': line_id.quantity,
-                    'product_uom': line_id.product_uom.id or False,
+                    'product_uom': line_id.product_uom.id,
                     'job_cost_id': job.id,
                     'job_cost_line_id': line_id.job_cost_line_id.id,
                     'taxes_id': [(6,0, line_id.product_id.supplier_taxes_id.ids)],
