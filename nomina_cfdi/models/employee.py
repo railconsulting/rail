@@ -32,19 +32,19 @@ class Employee(models.Model):
     
     tipo_regimen = fields.Selection(
         selection=[
-            ('02','Sueldos'),
-            ('03','Jubilados'),
-            ('04','Pensionados'),
-            ('05','Asimilados Miembros Sociedades Cooperativas Produccion'),
-            ('06','Asimilados Integrantes Sociedades Asociaciones Civiles'),
-            ('07','Asimilados Miembros consejos'),
-            ('08','Asimilados comisionistas'),
-            ('09','Asimilados Honorarios'),
-            ('10','Asimilados acciones'),
-            ('11','Asimilados otros'),
-            ('12','Jubilados o Pensionados'),
-            ('13','Indemnización o Separación'),
-            ('99','Otro Regimen')
+            ('02','02 - Sueldos'),
+            ('03','03 - Jubilados'),
+            ('04','04 - Pensionados'),
+            ('05','05 - Asimilados Miembros Sociedades Cooperativas Produccion'),
+            ('06','06 - Asimilados Integrantes Sociedades Asociaciones Civiles'),
+            ('07','07 - Asimilados Miembros consejos'),
+            ('08','08 - Asimilados comisionistas'),
+            ('09','09 - Asimilados Honorarios'),
+            ('10','10 - Asimilados acciones'),
+            ('11','11 - Asimilados otros'),
+            ('12','12 - Jubilados o Pensionados'),
+            ('13','13 - Indemnización o Separación'),
+            ('99','99 - Otro Regimen')
         ]
     )
     tipo_contrato = fields.Selection(
