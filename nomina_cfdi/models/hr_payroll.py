@@ -1626,9 +1626,9 @@ class HrPayslip(models.Model):
                     payslip.selo_sat = resultadoTimbrado['selloSAT']
                     payslip.folio_fiscal = resultadoTimbrado['uuid']
                     payslip.version = resultadoTimbrado['versionTFD']
-                    qr_str = resultadoTimbrado['qrCode'].encode('utf-8')
-                    payslip.qrcode_image = base64.b64encode(qr_str)
-
+                    #qr_str = resultadoTimbrado['qrCode'].encode('utf-8') TODO Estos cambios se aplicaron por que no se guardaba el QR en urbanos
+                    #payslip.qrcode_image = base64.b64encode(qr_str) TODO Pero al parecer hay que regresarlo a como estaba
+                    payslip.qrcode_image = base64.b64encode(resultadoTimbrado['qrCode'])
                     dict_data = dict(xmltodict.parse(resultadoTimbrado['cfdiTimbrado']).get('cfdi:Comprobante', {}))
                     tfd = dict_data
 
