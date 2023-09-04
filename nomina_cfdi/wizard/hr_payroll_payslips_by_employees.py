@@ -9,6 +9,8 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 from odoo.osv import expression
 from odoo.tools import format_date
+import logging
+_logger = logging.getLogger(__name__)
 
 class HrPayslipEmployeesExt(models.TransientModel):
     _inherit = 'hr.payslip.employees'
@@ -55,6 +57,8 @@ class HrPayslipEmployeesExt(models.TransientModel):
             payslip_run.date_start, payslip_run.date_end, states=['open', 'close']
         ).filtered(lambda c: c.active)
        # raise UserError(contracts)
+        _logger.critical("FROM: " + type(payslip_run.date_start))
+        _logger.critical("TO: " + type(payslip_run.date_end))
         contracts._generate_work_entries(payslip_run.date_start, payslip_run.date_end)
         work_entries = self.env['hr.work.entry'].search([
             ('date_start', '<=', payslip_run.date_end),
