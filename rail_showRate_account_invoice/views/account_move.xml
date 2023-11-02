@@ -5,14 +5,7 @@
         <field name="model">account.move</field>
         <field name="inherit_id" ref="account.view_move_form" />
         <field name="arch" type="xml">
-            <field name="currency_id" position="before">
-                <field name="show_currency_rate_amount" invisible="1" />
-                <field
-                    name="currency_rate_amount"
-                    digits="[12,12]"
-                    attrs="{'invisible':[('show_currency_rate_amount', '=', True)]}"
-                />
-            </field>
+            <field name="currency_rate_amount"/>
         </field>
     </record>
 </odoo>
