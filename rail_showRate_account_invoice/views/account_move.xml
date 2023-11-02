@@ -9,9 +9,8 @@
                 <field name="show_currency_rate_amount" invisible="1" />
                 <field
                     name="currency_rate_amount"
-                    groups="base.group_multi_currency"
                     digits="[12,12]"
-                    attrs="{'invisible':[('show_currency_rate_amount', '=', False)]}"
+                    attrs="{'invisible':[('show_currency_rate_amount', '=', True)]}"
                 />
             </field>
         </field>
