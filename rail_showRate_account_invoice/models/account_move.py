@@ -5,8 +5,7 @@ from odoo import models, fields, api
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
-    currency_rate_amount = fields.Float(
-        string="Rate", compute="_compute_currency_rate_amount", digits=0
+    currency_rate_amount = fields.Float(string="Currency Rate", compute="_compute_currency_rate_amount", digits=0
     )
         
     @api.depends(
