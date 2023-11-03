@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
+#@Author:   Jesus Ernesto Diaz Diaz
+#Date:      02-Nov-2023
 {
-    'name': "Rail Show Currency Rate for Invoices",
+    'name': "Show currency rate",
 
-    'summary': """It show in the invoice form the currency rate if the currency in transaction is 
-        different with the company currency""",
+    'summary': """It show the currency rate used in several forms, i.e. invoices, purchase orders, etc.""",
 
-    'author': "Rail Consulting / Ernesto Diaz",
+    'author': "Rail Consulting",
     'website': "https://www.rail.com.mx",
 
     # Categories can be used to filter modules in modules listing
