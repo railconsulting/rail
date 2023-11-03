@@ -2,12 +2,11 @@
 {
     'name': "Rail Show Currency Rate for Invoices",
 
-    'summary': """
-        A customization to show in the invoice form the currency rate if the currency in transaction is 
+    'summary': """A customization to show in the invoice form the currency rate if the currency in transaction is 
         different with the company currency""",
 
-    'author': "Rail / Ernesto Diaz",
-    'website': "https://rail.com.mx",
+    'author': "Rail Consulting / Ernesto Diaz",
+    'website': "https://www.rail.com.mx",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
