@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Rail - Show Currency Rate for Invoices",
+    'name': 'Rail Show Currency Rate for Invoices',
 
-    'summary': """
-        Will look for the currency rate used in the Invoice to show in form """,
+    'summary': """Will look for the currency rate used in the Invoice to display it """,
 
     'author': "Rail / Ernesto Diaz",
     'website': "https://rail.com.mx",
