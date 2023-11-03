@@ -3,7 +3,11 @@
     'name': "Rail Show Currency Rate for Invoices",
 
     'summary': """
-        Will look for the currency rate used in the Invoice to show in form """,
+        A customization to show in the invoice form the currency rate if the currency in transaction is 
+        different with the company currency""",
+    'description': """
+        A customization to show in the invoice form the currency rate if the currency in transaction is 
+        different with the company currency""",
 
     'author': "Rail / Ernesto Diaz",
     'website': "https://rail.com.mx",
@@ -12,7 +16,7 @@
     # Check https://github.com/odoo/odoo/blob/16.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Customizations',
-    'version': '16.0.0.2',
+    'version': '1.0.0.0',
 
     # any module necessary for this one to work correctly
     'depends': ['account'],
