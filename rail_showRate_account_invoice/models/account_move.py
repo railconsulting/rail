@@ -5,4 +5,4 @@ from odoo import fields, models, api
 class AccountMove(models.Model):
     _inherit = 'account.move'
 
-    use_jedd = fields.Boolean(string="Prueba JEDD")
+    currency_rate = fields.Floats(string="Tipo de cambio")
