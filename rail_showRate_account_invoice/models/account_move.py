@@ -38,7 +38,7 @@ class AccountMove(models.Model):
             rates = self._get_rates(item.company_id, item.date)
             if rates.get(item.currency_id.id) is not None:
                 item.currency_rate_amount = 1/rates.get(item.currency_id.id)
-            else
+            else:
                 item.currency_rate_amount = -1
 
     
