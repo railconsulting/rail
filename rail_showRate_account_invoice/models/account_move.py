@@ -41,6 +41,4 @@ class AccountMove(models.Model):
                 item.currency_rate_amount = 1/rates.get(item.currency_id.id)
             else:
                 item.currency_rate_amount = -1
-                raise ValidationError('Currency Rate not found')
-
-    
+                raise UserError('Currency Rate not found')
