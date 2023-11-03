@@ -2,7 +2,7 @@
 {
     'name': "Rail Show Currency Rate for Invoices",
 
-    'summary': """A customization to show in the invoice form the currency rate if the currency in transaction is 
+    'summary': """It show in the invoice form the currency rate if the currency in transaction is 
         different with the company currency""",
 
     'author': "Rail Consulting / Ernesto Diaz",
