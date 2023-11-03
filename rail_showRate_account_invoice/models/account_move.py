@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models, api, _
-from odoo.exceptions import UserError
+from odoo.exceptions import UserError, ValidationError
 
 class AccountMove(models.Model):
     _inherit = 'account.move'
@@ -41,6 +41,6 @@ class AccountMove(models.Model):
                 item.currency_rate_amount = 1/rates.get(item.currency_id.id)
             else:
                 item.currency_rate_amount = -1
-                raise exceptions.UserError('Currency Rate not found')
+                raise ValidationError('Currency Rate not found')
 
     
