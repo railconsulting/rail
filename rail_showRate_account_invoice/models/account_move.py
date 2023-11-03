@@ -25,8 +25,6 @@ class AccountMove(models.Model):
         currency_rates = dict(self._cr.fetchall())
         return currency_rates
 
-
-
     @api.depends(
         "state",
         "date",
@@ -37,5 +35,7 @@ class AccountMove(models.Model):
     def _compute_currency_rate_amount(self):
         for item in self:
             #rates = item.currency_id._get_rates(item.company_id, item.date)
-            rates = _get_rates(item.company_id, item.date)
+            rates = self._get_rates(item.company_id, item.date)
             item.currency_rate_amount = 1/rates.get(item.currency_id.id)
+
+    
