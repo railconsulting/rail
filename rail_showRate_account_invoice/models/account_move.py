@@ -45,8 +45,8 @@ class AccountMove(models.Model):
                     'tag': 'display_notification',
                     'params': {
                         'message': 'Currency rate not found',
-                        'type': 'error',
-                        'sticky': False
+                        'type': 'danger',
+                        'sticky': True
                     }
                 }
 
