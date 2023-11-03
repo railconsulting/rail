@@ -18,4 +18,5 @@ class AccountMove(models.Model):
     )
     def _compute_currency_rate_amount(self):
         for item in self:
-            item.currency_rate_amount = 1.23
+            rates = item.currency_id._get_rates(item.company_id, item.date)
+            item.currency_rate_amount = rates.get(item.currency_id.id)
