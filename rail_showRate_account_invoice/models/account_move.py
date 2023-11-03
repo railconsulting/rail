@@ -40,5 +40,14 @@ class AccountMove(models.Model):
                 item.currency_rate_amount = 1/rates.get(item.currency_id.id)
             else:
                 item.currency_rate_amount = -1
+                return {
+                    'type': 'ir.actions.client',
+                    'tag': 'display_notification',
+                    'params': {
+                        'message': 'Currency rate not found',
+                        'type': 'error',
+                        'sticky': False
+                    }
+                }
 
     
