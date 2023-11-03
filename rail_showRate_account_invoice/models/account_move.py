@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import fields, models, api
+from odoo import fields, models, api, _
+from odoo.exceptions import UserError
 
 class AccountMove(models.Model):
     _inherit = 'account.move'
@@ -40,14 +41,6 @@ class AccountMove(models.Model):
                 item.currency_rate_amount = 1/rates.get(item.currency_id.id)
             else:
                 item.currency_rate_amount = -1
-                return {
-                    'type': 'ir.actions.client',
-                    'tag': 'display_notification',
-                    'params': {
-                        'message': 'Currency rate not found',
-                        'type': 'danger',
-                        'sticky': True
-                    }
-                }
+                raise exceptions.UserError('Currency Rate not found')
 
     
