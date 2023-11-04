@@ -42,8 +42,9 @@ class AccountMove(models.Model):
             if item.currency_id != item.company_id.currency_id:
                 if currencyRate == 1.0:
                     item.currency_rate_amount = -1
-                    raise ValidationError('Currency Rate not found for date: ' + str(item.date))
+                    raise ValidationError('Currency Rate not found for date ' + str(item.date))
                 else:
-                    item.currency_rate_amount = 1/currencyRate
+                    #item.currency_rate_amount = 1/currencyRate
+                    raise ValidationError('Else ' + str(currencyRate))
             else:
                 item.currency_rate_amount = 1
