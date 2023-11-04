@@ -38,7 +38,7 @@ class AccountMove(models.Model):
         for item in self:
             #rates = item.currency_id._get_rates(item.company_id, item.date)
             if item.currency_id != item.company_id.currency_id:
-                rates = self.get_rates(item.currency_id, item.company_id.id, str(item.date))
+                rates = self.get_rates(item.currency_id, item.company_id, item.date)
                 currencyRate = rates.get(item.currency_id.id)
                 raise ValidationError('currencyRate- '+str(currencyRate)+'-company_id-'+str(item.company_id.id)+'-date-'+str(item.date)+'-currency_id-'+str(item.currency_id.id))
                 if currencyRate == 1.0:
