@@ -16,7 +16,7 @@ class AccountMove(models.Model):
         self.env['res.currency.rate'].flush_model(['rate', 'currency_id', 'company_id', 'name'])
         query = """SELECT c.id,
                           COALESCE((SELECT r.rate FROM res_currency_rate r
-                                  WHERE r.currency_id = c.id AND r.name = %s
+                                  WHERE r.currency_id = c.id AND r.name = '%s'
                                     AND (r.company_id IS NULL OR r.company_id = %s)
                                ORDER BY r.company_id, r.name DESC
                                   LIMIT 1), 1.0) AS rate
@@ -40,7 +40,7 @@ class AccountMove(models.Model):
             if item.currency_id != item.company_id.currency_id:
                 rates = self.get_rates(item.company_id.id, item.date)
                 currencyRate = rates.get(item.currency_id.id)
-                raise ValidationError('currencyRate- '+str(currencyRate)+'-'+str(item.company_id.id)+'-'+str(item.date)+'-'+str(item.currency_id.id))
+                raise ValidationError('currencyRate- '+str(currencyRate)+'-company_id-'+str(item.company_id.id)+'-date-'+str(item.date)+'-currency_id-'+str(item.currency_id.id))
                 if currencyRate == 1.0:
                     item.currency_rate_amount = -1
                     raise ValidationError('Currency Rate not found for date ' + str(item.date))
