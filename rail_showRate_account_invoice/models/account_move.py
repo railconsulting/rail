@@ -22,7 +22,7 @@ class AccountMove(models.Model):
                                   LIMIT 1), 1.0) AS rate
                    FROM res_currency c
                    WHERE c.id IN %s"""
-        self._cr.execute(query, (date, company.id, currency))
+        self._cr.execute(query, (date, company.id, currency.id))
         currency_rates = dict(self._cr.fetchall())
         return currency_rates
 
