@@ -10,7 +10,7 @@ class AccountMove(models.Model):
         string="Tipo de cambio", compute="_compute_currency_rate_amount", digits=0,
     )
 
-    def _get_rates(self, company, date):
+    def get_rates(self, company, date):
         if not self.ids:
             return {}
         self.env['res.currency.rate'].flush_model(['rate', 'currency_id', 'company_id', 'name'])
@@ -36,11 +36,11 @@ class AccountMove(models.Model):
     def _compute_currency_rate_amount(self):
         for item in self:
             #rates = item.currency_id._get_rates(item.company_id, item.date)
-            rates = self._get_rates(item.company_id, item.date)
+            rates = self.get_rates(item.company_id, item.date)
             if item.currency_id != item.company_id.currency_id:
-                if rates is None:
+                if rates.get(item.currency_id.id) == 1.0:
                     item.currency_rate_amount = -1
-                    raise ValidationError('Currency Rate not found ' + str(item.date))
+                    raise ValidationError('Currency Rate not found for date: ' + str(item.date))
                 else:
                     item.currency_rate_amount = 1/rates.get(item.currency_id.id)
             else:
