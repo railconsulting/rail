@@ -28,7 +28,7 @@ class AccountMove(models.Model):
 
     @api.depends(
         "state",
-        "date",
+        "invoice_date",
         "line_ids.amount_currency",
         "company_id",
         "currency_id"
@@ -37,12 +37,12 @@ class AccountMove(models.Model):
         currencyRate=0
         for item in self:
             if item.currency_id != item.company_id.currency_id:
-                rates = self.get_rates(item.currency_id, item.company_id, item.date)
+                rates = self.get_rates(item.currency_id, item.company_id, item.invoice_date)
                 currencyRate = rates.get(item.currency_id.id)
                 #raise ValidationError('currencyRate- '+str(currencyRate)+'-company_id-'+str(item.company_id.id)+'-date-'+str(item.date)+'-currency_id-'+str(item.currency_id.id))
                 if currencyRate == 1.0:
                     item.currency_rate_amount = -1
-                    raise ValidationError('Currency Rate not found for date ' + str(item.date))
+                    raise ValidationError('Currency rate not found for date ' + str(item.invoice_date))
                 else:
                     item.currency_rate_amount = 1/currencyRate
             else:
