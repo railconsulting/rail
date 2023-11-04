@@ -10,19 +10,19 @@ class AccountMove(models.Model):
         string="Tipo de cambio", compute="_compute_currency_rate_amount", digits=0,
     )
 
-    def get_rates(self, company, date):
-        if not self.ids:
-            return {}
+    def get_rates(self, currency, company, date):
+        #if not self.ids:
+        #    return {}
         self.env['res.currency.rate'].flush_model(['rate', 'currency_id', 'company_id', 'name'])
         query = """SELECT c.id,
                           COALESCE((SELECT r.rate FROM res_currency_rate r
-                                  WHERE r.currency_id = c.id AND r.name = '%s'
+                                  WHERE r.currency_id = c.id AND r.name = %s
                                     AND (r.company_id IS NULL OR r.company_id = %s)
                                ORDER BY r.company_id, r.name DESC
                                   LIMIT 1), 1.0) AS rate
                    FROM res_currency c
                    WHERE c.id IN %s"""
-        self._cr.execute(query, (date, company.id, tuple(self.ids)))
+        self._cr.execute(query, (date, company.id, currency))
         currency_rates = dict(self._cr.fetchall())
         return currency_rates
 
@@ -38,7 +38,7 @@ class AccountMove(models.Model):
         for item in self:
             #rates = item.currency_id._get_rates(item.company_id, item.date)
             if item.currency_id != item.company_id.currency_id:
-                rates = self.get_rates(item.company_id.id, item.date)
+                rates = self.get_rates(item.currency_id, item.company_id.id, str(item.date))
                 currencyRate = rates.get(item.currency_id.id)
                 raise ValidationError('currencyRate- '+str(currencyRate)+'-company_id-'+str(item.company_id.id)+'-date-'+str(item.date)+'-currency_id-'+str(item.currency_id.id))
                 if currencyRate == 1.0:
