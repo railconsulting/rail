@@ -34,14 +34,16 @@ class AccountMove(models.Model):
         "currency_id"
     )
     def _compute_currency_rate_amount(self):
+        currencyRate=0
         for item in self:
             #rates = item.currency_id._get_rates(item.company_id, item.date)
             rates = self.get_rates(item.company_id, item.date)
+            currencyRate = rates.get(item.currency_id.id)
             if item.currency_id != item.company_id.currency_id:
-                if rates.get(item.currency_id.id) == 1.0:
+                if currencyRate == 1.0:
                     item.currency_rate_amount = -1
                     raise ValidationError('Currency Rate not found for date: ' + str(item.date))
                 else:
-                    item.currency_rate_amount = 1/rates.get(item.currency_id.id)
+                    item.currency_rate_amount = 1/currencyRate
             else:
                 item.currency_rate_amount = 1
