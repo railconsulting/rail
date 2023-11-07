@@ -4,7 +4,7 @@
 {
     'name': "Show currency rate",
 
-    'summary': """It show the currency rate used in several forms, i.e. invoices, purchase orders, etc.""",
+    'summary': """It show the currency rate used in several forms, i.e. invoices, credit memos, payments, purchase orders, etc.""",
 
     'author': "Rail Consulting",
     'website': "https://www.rail.com.mx",
@@ -21,6 +21,7 @@
     # always loaded
     'data': [
         'views/account_move.xml',
+        'views/account_payment.xml'
     ],
     'license': 'LGPL-3',
 }
