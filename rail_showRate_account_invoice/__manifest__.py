@@ -22,7 +22,8 @@
     'data': [
         'views/account_move.xml',
         'views/account_payment.xml',
-        'views/purchase_order.xml'
+        'views/purchase_order.xml',
+        'views/sale_order.xml'
     ],
     'license': 'LGPL-3',
 }
