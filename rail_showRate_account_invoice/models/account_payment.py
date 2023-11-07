@@ -11,8 +11,6 @@ class AccountPayment(models.Model):
     )
 
     def get_rates(self, currency, company, date):
-        #if not self.ids:
-        #    return {}
         self.env['res.currency.rate'].flush_model(['rate', 'currency_id', 'company_id', 'name'])
         query = """SELECT c.id,
                           COALESCE((SELECT r.rate FROM res_currency_rate r
@@ -33,14 +31,16 @@ class AccountPayment(models.Model):
     )
     def _compute_currency_rate_amount(self):
         currencyRate=0
+        
         for item in self:
-            if item.currency_id != item.company_id.currency_id:
-                rates = self.get_rates(item.currency_id, item.company_id, item.invoice_date)
-                currencyRate = rates.get(item.currency_id.id)
-                if currencyRate == 1.0:
-                    item.currency_rate_amount = -1
-                    raise ValidationError('Currency rate not found for date ' + str(item.invoice_date))
-                else:
-                    item.currency_rate_amount = 1/currencyRate
-            else:
-                item.currency_rate_amount = 1
+            item.currency_rate_amount = 10.1234
+        #    if item.currency_id != item.company_id.currency_id:
+        #        rates = self.get_rates(item.currency_id, item.company_id, item.date)
+        #        currencyRate = rates.get(item.currency_id.id)
+        #        if currencyRate == 1.0:
+        #            item.currency_rate_amount = -1
+        #            raise ValidationError('Currency rate not found for date ' + str(item.invoice_date))
+        #        else:
+        #            item.currency_rate_amount = 1/currencyRate
+        #    else:
+        #        item.currency_rate_amount = 1
