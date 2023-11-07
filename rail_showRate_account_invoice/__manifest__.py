@@ -4,7 +4,7 @@
 {
     'name': "Show currency rate",
 
-    'summary': """It show the currency rate used in several forms, i.e. invoices, credit memos, payments, purchase orders, etc.""",
+    'summary': """It show the currency rate used in several forms, i.e. invoices, credit memos, payments, purchase orders, sale orders, quotations, etc.""",
 
     'author': "Rail Consulting",
     'website': "https://www.rail.com.mx",
