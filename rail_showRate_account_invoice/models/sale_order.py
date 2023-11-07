@@ -33,9 +33,9 @@ class SaleOrder(models.Model):
         currencyRate=0
         
         for item in self:
-            raise ValidationError('pricelist_id-'+str(item.pricelist_id.currency_id.id))
+            raise ValidationError('pricelist_id-'+item.pricelist_id.currency_id.id)
             #if ((item.pricelist_id.currency_id != item.company_id.currency_id)
-            #and (item.pricelist_id.currency_id.id is not None)):
+            #and (item.pricelist_id.currency_id.id != 'False')):
             #    rates = self.get_rates(item.pricelist_id.currency_id, item.company_id, item.date_order)
             #    currencyRate = rates.get(item.pricelist_id.currency_id)
             #    if currencyRate == 1.0:
