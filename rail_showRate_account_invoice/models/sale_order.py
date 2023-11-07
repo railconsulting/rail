@@ -20,7 +20,7 @@ class SaleOrder(models.Model):
                                   LIMIT 1), 1.0) AS rate
                    FROM res_currency c
                    WHERE c.id IN (%s)"""
-        self._cr.execute(query, (date, company.id, currency.id))
+        self._cr.execute(query, (date, company.id, currency))
         currency_rates = dict(self._cr.fetchall())
         return currency_rates
     
@@ -35,7 +35,7 @@ class SaleOrder(models.Model):
         for item in self:
             if item.pricelist_id.currency_id != item.company_id.currency_id:
                 rates = self.get_rates(item.pricelist_id.currency_id, item.company_id, item.date_order)
-                currencyRate = rates.get(item.pricelist_id.currency_id.id)
+                currencyRate = rates.get(item.pricelist_id.currency_id)
                 if currencyRate == 1.0:
                     item.currency_rate_amount = -1
                     raise ValidationError('Currency rate not found for date ' + str(item.date_order))
