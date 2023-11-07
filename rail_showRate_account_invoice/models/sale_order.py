@@ -27,15 +27,15 @@ class SaleOrder(models.Model):
     @api.depends(
         "date_order",
         "company_id",
-        "currency_id"
+        "pricelist_id"
     )
     def _compute_currency_rate_amount(self):
         currencyRate=0
         
         for item in self:
-            if item.currency_id != item.company_id.currency_id:
-                rates = self.get_rates(item.currency_id, item.company_id, item.date_order)
-                currencyRate = rates.get(item.currency_id.id)
+            if item.pricelist_id.currency_id != item.company_id.currency_id:
+                rates = self.get_rates(item.pricelist_id.currency_id, item.company_id, item.date_order)
+                currencyRate = rates.get(item.pricelist_id.currency_id.id)
                 if currencyRate == 1.0:
                     item.currency_rate_amount = -1
                     raise ValidationError('Currency rate not found for date ' + str(item.date_order))
