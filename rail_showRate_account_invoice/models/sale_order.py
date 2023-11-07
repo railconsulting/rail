@@ -37,11 +37,10 @@ class SaleOrder(models.Model):
             if ((item.pricelist_id.currency_id != item.company_id.currency_id)
             and (item.pricelist_id.currency_id.id != False)):
                 rates = self.get_rates(item.pricelist_id.currency_id, item.company_id, str(item.date_order)[0:10])
-                currencyRate = rates.get(item.pricelist_id.currency_id)
-                raise ValidationError(str(rates))
+                currencyRate = rates.get(item.pricelist_id.currency_id.id)
                 if currencyRate == 1.0 or currencyRate is None:
                     item.currency_rate_amount = -1
-                    raise ValidationError('Currency rate not found for date ' + str(item.date_order)[0:10] + '-currency_id-'+str(item.pricelist_id.currency_id)+'-company_id-'+str(item.company_id))
+                    raise ValidationError('Currency rate not found for date ' + str(item.date_order)[0:10])
                 else:
                     item.currency_rate_amount = 1/currencyRate
             else:
