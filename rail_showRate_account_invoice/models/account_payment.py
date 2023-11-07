@@ -33,14 +33,13 @@ class AccountPayment(models.Model):
         currencyRate=0
         
         for item in self:
-            item.currency_rate_amount = 10.1234
-        #    if item.currency_id != item.company_id.currency_id:
-        #        rates = self.get_rates(item.currency_id, item.company_id, item.date)
-        #        currencyRate = rates.get(item.currency_id.id)
-        #        if currencyRate == 1.0:
-        #            item.currency_rate_amount = -1
-        #            raise ValidationError('Currency rate not found for date ' + str(item.invoice_date))
-        #        else:
-        #            item.currency_rate_amount = 1/currencyRate
-        #    else:
-        #        item.currency_rate_amount = 1
+            if item.currency_id != item.company_id.currency_id:
+                rates = self.get_rates(item.currency_id, item.company_id, item.date)
+                currencyRate = rates.get(item.currency_id.id)
+                if currencyRate == 1.0:
+                    item.currency_rate_amount = -1
+                    raise ValidationError('Currency rate not found for date ' + str(item.invoice_date))
+                else:
+                    item.currency_rate_amount = 1/currencyRate
+            else:
+                item.currency_rate_amount = 1
