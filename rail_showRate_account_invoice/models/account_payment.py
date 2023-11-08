@@ -38,7 +38,7 @@ class AccountPayment(models.Model):
                 currencyRate = rates.get(item.currency_id.id)
                 if currencyRate == 1.0:
                     item.currency_rate_amount = -1
-                    raise ValidationError('Currency rate not found for date ' + str(item.date))
+                    raise ValidationError(_('Currency rate not found for date ') + str(item.date))
                 else:
                     item.currency_rate_amount = 1/currencyRate
             else:
