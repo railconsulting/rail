@@ -15,6 +15,11 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#. module: base
+#: model:ir.module.module,summary:base.rail_showRate_account_invoice
+msgid "Show currency rate"
+msgstr "Mostrar tipo de cambio"
+
 #. module: rail_showRate_account_invoice
 #: model:ir.model.fields,field_description:rail_showRate_account_invoice.field_account_bank_statement_line__currency_rate_amount
 #: model:ir.model.fields,field_description:rail_showRate_account_invoice.field_account_move__currency_rate_amount
