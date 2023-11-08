@@ -46,5 +46,5 @@ msgstr "Orden de venta"
 #: model:ir.model.fields,field_description:rail_showRate_account_invoice.field_account_payment__currency_rate_amount
 #: model:ir.model.fields,field_description:rail_showRate_account_invoice.field_purchase_order__currency_rate_amount
 #: model:ir.model.fields,field_description:rail_showRate_account_invoice.field_sale_order__currency_rate_amount
-msgid "Tipo de cambio"
-msgstr "Currency exchange rate"
+msgid "Currency exchange rate"
+msgstr "Tipo de cambio"
