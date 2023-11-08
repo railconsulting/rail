@@ -2,7 +2,7 @@
 #@Author:   Jesus Ernesto Diaz Diaz
 #Date:      02-Nov-2023
 {
-    'name': _("Show currency rate"),
+    'name': "Show currency rate",
 
     'summary': """It show the currency rate used in several forms, i.e. invoices, credit memos, payments, purchase orders, sale orders, quotations, etc.""",
 
