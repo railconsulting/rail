@@ -2,8 +2,10 @@
 # This file contains the translation of the following modules:
 # 	* rail_showRate_account_invoice
 #
-msgid ""
-msgstr ""
+
+msgid "Currency rate not found for date"
+msgstr "Tipo de cambio no encontrado para la fecha"
+
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-08 00:02+0000\n"
