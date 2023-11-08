@@ -17,6 +17,34 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: rail_showRate_account_invoice
+#. odoo-python
+#: code:addons/rail_showRate_account_invoice/models/account_move.py:0
+#, python-format
+msgid "Currency rate not found for date "
+msgstr "Tipo de cambio no encontrado para fecha "
+
+#. module: rail_showRate_account_invoice
+#. odoo-python
+#: code:addons/rail_showRate_account_invoice/models/account_payment.py:0
+#, python-format
+msgid "Currency rate not found for date "
+msgstr "Tipo de cambio no encontrado para fecha "
+
+#. module: rail_showRate_account_invoice
+#. odoo-python
+#: code:addons/rail_showRate_account_invoice/models/purchase_order.py:0
+#, python-format
+msgid "Currency rate not found for date "
+msgstr "Tipo de cambio no encontrado para fecha "
+
+#. module: rail_showRate_account_invoice
+#. odoo-python
+#: code:addons/rail_showRate_account_invoice/models/sale_order.py:0
+#, python-format
+msgid "Currency rate not found for date "
+msgstr "Tipo de cambio no encontrado para fecha "
+
+#. module: rail_showRate_account_invoice
 #: model:ir.model,name:rail_showRate_account_invoice.model_account_move
 msgid "Journal Entry"
 msgstr "Asiento contable"

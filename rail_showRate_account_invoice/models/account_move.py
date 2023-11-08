@@ -7,7 +7,7 @@ class AccountMove(models.Model):
     _inherit = 'account.move'
 
     currency_rate_amount = fields.Float(
-        string="Tipo de cambio", compute="_compute_currency_rate_amount", digits=0,
+        string="Currency exchange rate", compute="_compute_currency_rate_amount", digits=0,
     )
 
     def get_rates(self, currency, company, date):

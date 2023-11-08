@@ -7,7 +7,7 @@ class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
     
     currency_rate_amount = fields.Float(
-        string="Tipo de cambio", compute="_compute_currency_rate_amount", digits=0,
+        string="Currency exchange rate", compute="_compute_currency_rate_amount", digits=0,
     )
 
     def get_rates(self, currency, company, date):
