@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='communication']" position="after">
                 <field
-                    name="field_custom_test"
+                    name="currency_rate_amount"
                     digits="[12,4]"
                 />
             </xpath>
