@@ -3,7 +3,7 @@
 from odoo import fields, models, api, _
 from odoo.exceptions import UserError, ValidationError
 
-class AccountPaymentRegister(models.Model):
+class AccountPaymentRegister(models.TransientModel):
     _inherit = 'account.payment.register'
 
     currency_rate_amount = fields.Float(
