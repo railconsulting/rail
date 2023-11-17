@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 #@Author:   Jesus Ernesto Diaz Diaz
-#Date:      02-Nov-2023
+#Date:      15-Nov-2023
 {
-    'name': "Show currency rate",
+    'name': "Register Payments with Approvals",
 
-    'summary': """It show the currency rate used in several forms, i.e. invoices, credit memos, payments, purchase orders, sale orders, quotations, etc.""",
+    'summary': """Customization to Register Payments process to allow raise the approval""",
 
     'author': "Rail Consulting",
     'website': "https://www.rail.com.mx",
@@ -16,14 +16,11 @@
     'version': '1.0.0.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['account','purchase','sale'],
+    'depends': ['account'],
 
     # always loaded
     'data': [
-        'views/account_move.xml',
-        'views/account_payment.xml',
-        'views/purchase_order.xml',
-        'views/sale_order.xml'
+        'views/account_payment_register.xml'
     ],
     'license': 'LGPL-3',
 }
