@@ -33,8 +33,7 @@ class PurchaseOrder(models.Model):
         currencyRate=0
         
         for item in self:
-            if (item.currency_id != item.company_id.currency_id
-            and (item.currency_id.id != False)):
+            if item.currency_id != item.company_id.currency_id:
                 rates = self.get_rates(item.currency_id, item.company_id, str(item.date_order)[0:10])
                 currencyRate = rates.get(item.currency_id.id)
                 if currencyRate == 1.0:
