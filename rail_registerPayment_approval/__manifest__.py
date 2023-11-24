@@ -20,7 +20,7 @@
 
     # always loaded
     'data': [
-        'views/account_payment_register.xml'
+        'wizard/account_payment_register.xml'
     ],
     'license': 'LGPL-3',
 }
