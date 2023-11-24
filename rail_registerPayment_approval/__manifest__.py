@@ -19,8 +19,6 @@
     'depends': ['account'],
 
     # always loaded
-    'data': [
-        'wizard/account_payment_register.xml'
-    ],
+    'data': [],
     'license': 'LGPL-3',
 }
