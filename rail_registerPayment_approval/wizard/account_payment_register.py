@@ -6,49 +6,6 @@ from odoo.exceptions import UserError, ValidationError
 class AccountPaymentRegister(models.TransientModel):
     _inherit = 'account.payment.register'
 
-    def _request_approval(self):
-        '''
-        1. create request
-        2. Submit request
-        3. update x_has_request_approval = True
-        4. open request form view
-        '''
-        self.ensure_one()
-
-        if not self.type_id.active or not self.type_id.is_configured or \
-                not self.origin_ref.x_need_approval:
-            raise UserError(
-                _('Data is changed! Please refresh your browser in order to continue !'))
-        if self.origin_ref.x_has_request_approval and \
-                not self.type_id.is_free_create:
-            raise UserError(
-                _('Request has been created before !'))
-        
-        # create request
-        vals = {
-            'name': self.name,
-            'priority': self.priority,
-            'type_id': self.type_id.id,
-            'description': self.description,
-            'origin_ref': '{model},{res_id}'.format(
-                model=self.origin_ref._name,
-                res_id=self.origin_ref.id)
-        }
-        request = self.env['multi.approval'].create(vals)
-        request.action_submit()
-
-        # update x_has_request_approval
-        self.env['multi.approval.type'].update_x_field(
-            request.origin_ref, 'x_has_request_approval')
-
-        return {
-            'name': _('My Requests'),
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'res_model': 'multi.approval',
-            'res_id': request.id,
-        }
-    
     def _create_payments(self):
         self.ensure_one()
         all_batches = self._get_batches()
@@ -98,7 +55,6 @@ class AccountPaymentRegister(models.TransientModel):
                 })
 
         payments = self._init_payments(to_process, edit_mode=edit_mode)
-        self._request_approval()
-        self._post_payments(to_process, edit_mode=edit_mode)
-        self._reconcile_payments(to_process, edit_mode=edit_mode)
+        ##self._post_payments(to_process, edit_mode=edit_mode)
+        ##self._reconcile_payments(to_process, edit_mode=edit_mode)
         return payments
