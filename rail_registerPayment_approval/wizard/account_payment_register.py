@@ -7,8 +7,7 @@ from odoo.tools import frozendict
 
 
 class AccountPaymentRegister(models.TransientModel):
-    _name = 'account.payment.register'
-    _description = 'Register Payment'
+    _inherit = 'account.payment.register'
 
     # == Business fields ==
     payment_date = fields.Date(string="Payment Date", required=True,
