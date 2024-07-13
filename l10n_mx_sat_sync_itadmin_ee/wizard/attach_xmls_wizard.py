@@ -86,7 +86,7 @@ class AttachXmlsWizard(models.TransientModel):
         return node[0] if node else None
     
     @api.model
-    def check_xml(self, files):
+    def check_xml(self, files, **kwargs):
         """ Validate that attributes in the xml before create invoice
         or attach xml in it
         :param files: dictionary of CFDIs in b64

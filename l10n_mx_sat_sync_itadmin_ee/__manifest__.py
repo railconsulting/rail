@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name':         'Administrador de documentos Digitales',
-    'version': '16.02',
-    'description':  ''' 
+    'name': 'Administrador de documentos Digitales',
+    'version': '17.03',
+    'description': ''' 
                     Descarga los CFDI del portal del SAT a la base de datos de 
                     Odoo para su procesamiento y administracion, se necesita de la libreria de python
                     xmltodict - sudo pip3 install xmltodict 
@@ -11,7 +11,7 @@
                     ''',
     'category':     'Accounting',
     'author':       'IT Admin',
-    'website':      'www.tuodoo.com',
+    'website':      'www.itadmin.com.mx',
     'depends':      [
                     'account','l10n_mx_edi','sale_management','purchase','account_accountant'
                     ],
@@ -39,16 +39,12 @@
                     ],
     'assets': {
         'web.assets_backend': [
-            'l10n_mx_sat_sync_itadmin_ee/static/src/js/**/*',
-            'l10n_mx_sat_sync_itadmin_ee/static/src/xml/list_buttons.xml',
-            'l10n_mx_sat_sync_itadmin_ee/static/src/css/**/*',
-            'l10n_mx_sat_sync_itadmin_ee/static/src/xml/*.xml',
-        ],
-        'web.assets_qweb': [
-            'l10n_mx_sat_sync_itadmin_ee/static/src/xml/*.xml',
+           'l10n_mx_sat_sync_itadmin_ee/static/src/js/**/*',
+           'l10n_mx_sat_sync_itadmin_ee/static/src/css/**/*',
+           'l10n_mx_sat_sync_itadmin_ee/static/src/xml/*.xml',
         ],
     },
-    'application':  False,
-    'installable':  True,
+    'application': False,
+    'installable': True,
     'license': 'OPL-1',
 }

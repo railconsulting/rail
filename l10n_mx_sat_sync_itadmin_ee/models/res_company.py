@@ -59,7 +59,11 @@ class ResCompany(models.Model):
 
     last_cfdi_fetch_date = fields.Datetime("Última sincronización")
     l10n_mx_esignature_ids = fields.Many2many('l10n.mx.esignature.certificate', string='Certificado FIEL')
-    solo_documentos_de_proveedor = fields.Boolean("Solo documentos de proveedor")
+    #solo_documentos_de_proveedor = fields.Boolean("Solo documentos de proveedor")
+
+    @api.model
+    def custom_action_sincronizar_sat(self):
+        self.import_current_company_invoice()
 
     @api.model
     def auto_import_cfdi_invoices(self):
@@ -443,7 +447,8 @@ class ResCompany(models.Model):
                 break
         invoice_content_receptor, invoice_content_emisor = {}, {}
         if sat and sat.is_connect:
-            if self.solo_documentos_de_proveedor:
+            solo_documentos_de_proveedor = self.env['ir.config_parameter'].sudo().get_param('l10n_mx_sat_sync_itadmin_ee.solo_documentos_de_proveedor')
+            if solo_documentos_de_proveedor:
                 invoice_content_receptor, invoice_content_emisor = sat.search(opt, 'supplier')
             else:
                 invoice_content_receptor, invoice_content_emisor = sat.search(opt)
@@ -683,7 +688,7 @@ class ResCompany(models.Model):
                     for uu in [uuid,uuid.lower(),uuid.upper()]:
                         invoice_exist = invoice_obj.search([('l10n_mx_edi_cfdi_uuid_cusom','=',uu),('move_type','=','out_refund'), ('company_id','=',self.id)],limit=1)
                         if invoice_exist:
-                            vals.update({'creado_en_odoo' : True,'payment_ids':[(6,0, invoice_exist.ids)]})
+                            vals.update({'creado_en_odoo' : True,'invoice_ids':[(6,0, invoice_exist.ids)]})
                             break
                 else:
                     for uu in [uuid,uuid.lower(),uuid.upper()]:

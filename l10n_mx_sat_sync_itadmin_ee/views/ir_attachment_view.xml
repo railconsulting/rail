@@ -27,14 +27,14 @@
                             type="object"
                             class="oe_stat_button"
                             icon="fa-pencil-square-o"
-                            attrs="{'invisible': [('invoice_count', '=', 0)]}">
+                            invisible="invoice_count == 0">
                             <field name="invoice_count" widget="statinfo" string="Facturas"/>
                         </button>
                     <button name="action_view_payments"
                         type="object"
                         class="oe_stat_button"
                         icon="fa-pencil-square-o"
-                        attrs="{'invisible': [('payment_count', '=', 0)]}">
+                        invisible="payment_count == 0">
                         <field name="payment_count" widget="statinfo" string="Pagos"/>
                     </button>
                 </div>
@@ -169,5 +169,62 @@
              records.action_download_state()
         </field>
     </record>
+
+    <record id="action_importar_xml" model="ir.actions.server">
+        <field name="name">Importar XML</field>
+        <field name="model_id" ref="model_ir_attachment"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+            'type': 'ir.actions.act_window',
+            'res_model': 'multi.file.attach.xmls.wizard',
+            'domain': [('id', '=', record.id if record else False)],
+            'target': 'new',
+            'views': [(env.ref('l10n_mx_sat_sync_itadmin_ee.multi_file_attach_xmls_wizard_form_view').id, 'form')],
+            }
+        </field>
+    </record>
+
+    <record id="action_descarga_dia" model="ir.actions.server">
+        <field name="name">Descarga Dia</field>
+        <field name="model_id" ref="model_ir_attachment"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+            'type': 'ir.actions.act_window',
+            'res_model': 'descarga.x.dia.wizard',
+            'domain': [('id', '=', record.id if record else False)],
+            'target': 'new',
+            'views': [(env.ref('l10n_mx_sat_sync_itadmin_ee.view_import_cfdi_invoice_xml_attachment_form').id, 'form')],
+            }
+        </field>
+    </record>
+
+    <record id="action_sincronizar_sat" model="ir.actions.server">
+        <field name="name">Sincronizar SAT</field>
+        <field name="model_id" ref="model_res_company"/>
+        <field name="state">code</field>
+        <field name="code">
+            model.custom_action_sincronizar_sat()
+        </field>
+    </record>
+
+    <menuitem action="action_importar_xml"
+              id="menu_action_importar_xml"
+              parent="main_manu_attachment_cfdi_invoices"
+              name="Importar XML"
+              sequence="11"/>
+
+    <menuitem action="action_descarga_dia"
+              id="menu_action_descarga_dia"
+              parent="main_manu_attachment_cfdi_invoices"
+              name="Descarga Dia"
+              sequence="12"/>
+
+    <menuitem action="action_sincronizar_sat"
+              id="menu_action_sincronizar_sat"
+              parent="main_manu_attachment_cfdi_invoices"
+              name="Sincronizar SAT"
+              sequence="13"/>
 
 </odoo>

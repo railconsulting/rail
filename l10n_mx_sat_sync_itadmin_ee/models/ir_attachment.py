@@ -186,11 +186,10 @@ class IrAttachment(models.Model):
 
     def action_download_state(self):
         for attach in self:
-            company_id = self._context.get('default_company_id', self.env.company)
             if attach.cfdi_type == 'I' or attach.cfdi_type == 'E' or  attach.cfdi_type == 'P' or attach.cfdi_type == 'N' or attach.cfdi_type == 'T':
                 try:
                     total = attach.cfdi_total if not attach.cfdi_type == 'P' else 0
-                    status = self.get_sat_status(company_id.vat, attach.rfc_tercero, total, attach.cfdi_uuid)
+                    status = self.get_sat_status(attach.company_id.vat, attach.rfc_tercero, total, attach.cfdi_uuid)
                 except Exception as e:
                     _logger.info("Falla al descargar estado del SAT: %s", str(e))
                     continue
@@ -198,7 +197,7 @@ class IrAttachment(models.Model):
             elif attach.cfdi_type == 'SI' or attach.cfdi_type == 'SE' or  attach.cfdi_type == 'SP' or attach.cfdi_type == 'SN' or attach.cfdi_type == 'ST':
                 try:
                     total = attach.cfdi_total if not attach.cfdi_type == 'SP' else 0
-                    status = self.get_sat_status(attach.rfc_tercero, company_id.vat, total, attach.cfdi_uuid)
+                    status = self.get_sat_status(attach.rfc_tercero, attach.company_id.vat, total, attach.cfdi_uuid)
                 except Exception as e:
                     _logger.info("Falla al descargar estado del SAT: %s", str(e))
                     continue
@@ -275,3 +274,8 @@ class IrAttachment(models.Model):
             access_mode = 'write' if mode in ('create', 'unlink') else mode
             records.check_access_rights(access_mode)
             records.check_access_rule(access_mode)
+            
+    @api.model
+    def custom_action_sincronizar_documentos(self):
+        self.update_status_from_ir_attachment_document()
+

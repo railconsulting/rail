@@ -6,7 +6,7 @@ from lxml import etree
 import base64
 from lxml.objectify import fromstring
 
-CFDI_XSLT_CADENA_TFD = 'l10n_mx_edi/data/xslt/3.3/cadenaoriginal_TFD_1_1.xslt'
+CFDI_XSLT_CADENA_TFD = 'l10n_mx_edi/data/4.0/xslt/cadenaoriginal_TFD.xslt'
 
 class ReportPaymentFromXMLFile(models.AbstractModel):
     _name ="report.l10n_mx_sat_sync_itadmin_ee.attachment_payment_report"
