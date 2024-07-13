@@ -1,11 +1,13 @@
-/** @odoo-module */
-import { _t } from 'web.core';
-import { registry } from '@web/core/registry';
-import { useService } from "@web/core/utils/hooks";
-import { CharField } from "@web/views/fields/char/char_field";
-import rpc from 'web.rpc';
+/** @odoo-module **/
 
-export class attachXmlsWizard extends CharField {
+import {_t} from "@web/core/l10n/translation";
+import { registry } from "@web/core/registry";
+import { CharField, charField } from "@web/views/fields/char/char_field";
+import { useService } from "@web/core/utils/hooks";
+import { jsonrpc } from "@web/core/network/rpc_service";
+
+
+export class IbanWidget extends CharField {
      _onDragEnter(ev) {
          ev.stopPropagation();
          ev.preventDefault();
@@ -32,25 +34,25 @@ export class attachXmlsWizard extends CharField {
     }
     _onButtonSave(e){
         e.preventDefault();
-                $('.alert-warning.dnd-alert').remove();
-                if (Object.keys(this.files).length <= 0) {
-                    this.notification.add(this.env._t("There is no files selected"), {type: "danger",});
-                }
-                //@HP: this.getParent().state.context.active_ids --> no longer find parent class in 16.
-                else if (Object.keys(this.files).length > 1 && this.env.model.root.context.active_ids) {
-                    this.notification.add(this.env._t("There is no files selected"), {type: "danger",});
-                }
-                else {
-                    $('#dragandrophandler').hide();
-                    $('#dndfooter').find("#save").attr('disabled', true);
-                    $('#filescontent').find(".xml_cont").removeClass('xml_cont_hover');
-                    this.readFiles(this.files);
-                }
+        $('.alert-warning.dnd-alert').remove();
+        if (Object.keys(this.files).length <= 0) {
+            this.notification.add(_t("There is no files selected"), {type: "danger",});
+        }
+        //@HP: this.getParent().state.context.active_ids --> no longer find parent class in 16.
+        else if (Object.keys(this.files).length > 1 && this.env.model.root.context.active_ids) {
+            this.notification.add(_t("There is no files selected"), {type: "danger",});
+        }
+        else {
+            $('#dragandrophandler').hide();
+            $('#dndfooter').find("#save").attr('disabled', true);
+            $('#filescontent').find(".xml_cont").removeClass('xml_cont_hover');
+            this.readFiles(this.files);
+        }
     }
 
     _onButtonClose(e){
           e.preventDefault();
-          this.props.record.model.root.model.actionService.doAction({'type': 'ir.actions.act_window_close'});
+           return this.action.doAction({type: "ir.actions.act_window_close",});
     }
     async _onButtonShow(e){
           e.preventDefault();
@@ -68,8 +70,10 @@ export class attachXmlsWizard extends CharField {
                     });
                 }
     }
+
     setup() {
             super.setup();
+            this.actionService = useService("action");
             this.files = {};
             this.uploading_files = false;
             this.attachment_ids = [];
@@ -120,7 +124,7 @@ export class attachXmlsWizard extends CharField {
                         }
                         if (Object.keys(wrong_files).length === Object.keys(readfiles).length) {
                             // self.sendFileToServer(readfiles);
-                            rpc.query({
+                            jsonrpc({
                                 model: 'multi.file.attach.xmls.wizard',
                                 method: 'remove_wrong_file',
                                 args: [readfiles],
@@ -178,7 +182,7 @@ export class attachXmlsWizard extends CharField {
                     this.removeWrongAlerts($(alertnode), filekey, true);
                 }
                 else if (type === 'partner') {
-                    rpc.query({
+                    jsonrpc({
                         model: 'multi.file.attach.xmls.wizard',
                         method: 'create_partner',
                         args: [this.alerts_in_queue.alertHTML[filekey].xml64, filekey],
@@ -200,7 +204,7 @@ export class attachXmlsWizard extends CharField {
             file is not the correct one or the file is already uploaded */
             var self = this;
             if (self.uploading_files) {
-                self.notification.add(this.env._t("There are files uploading"), {title: this.env._t('Error'),type: "danger",});
+                self.notification.add(_t("There are files uploading"), {title: _t('Error'),type: "danger",});
             }
             else {
                 self.uploading_files = true;
@@ -288,10 +292,11 @@ export class attachXmlsWizard extends CharField {
             ctx.journal_id = options.journal_id;
             ctx.omit_cfdi_related = options.omit_cfdi_related;
             ctx.product_create = options.product_create;
-            rpc.query({
+            jsonrpc(`/web/dataset/call_kw/multi.file.attach.xmls.wizard/check_xml`, {
                 model: 'multi.file.attach.xmls.wizard',
                 method: 'check_xml',
                 args: [files],
+                kwargs: {},
                 context: ctx,
             }).then(function(result) {
                 var wrongfiles = result.wrongfiles;
@@ -332,7 +337,7 @@ export class attachXmlsWizard extends CharField {
                     self.alerts_in_queue.total -= 1;
                     $('#filescontent div[title="' + key + '"]').remove();
 
-                    self.notification.add(this.env._t("XML removed, the TipoDeComprobante is not I nor E."), {title: this.env._t('Error'),type: "danger",});
+                    self.notification.add(_t("XML removed, the TipoDeComprobante is not I nor E."), {title: _t('Error'),type: "danger",});
                 }
                 else {
 
@@ -475,7 +480,7 @@ export class attachXmlsWizard extends CharField {
             var options = self.getFields();
             var ctx = self.env.model.root.context;
             ctx.account_id = options.account_id;
-            rpc.query({
+            jsonrpc({
                 model: 'multi.file.attach.xmls.wizard',
                 method: function_def,
                 args: [xml_file],
@@ -565,7 +570,11 @@ export class attachXmlsWizard extends CharField {
             });
         }
 }
+IbanWidget.template = "l10n_mx_sat_sync_itadmin_ee.multi_attach_xmls_template";
 
-attachXmlsWizard.template = "l10n_mx_sat_sync_itadmin_ee.multi_attach_xmls_template";
+export const ibanWidget = {
+    ...charField,
+    component: IbanWidget,
+};
 
-registry.category("fields").add("multi_attach_xmls_wizard_widget", attachXmlsWizard);
+registry.category("fields").add("multi_attach_xmls_wizard_widget", ibanWidget);

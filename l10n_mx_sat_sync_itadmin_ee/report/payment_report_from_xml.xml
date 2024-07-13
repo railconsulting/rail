@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    
 
-     <record id="action_attachment_payment_report" model="ir.actions.report">
-        <field name="name">Payment</field>
+    <record id="action_attachment_payment_report" model="ir.actions.report">
+        <field name="name">Pago</field>
         <field name="model">ir.attachment</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">l10n_mx_sat_sync_itadmin_ee.attachment_payment_report</field>
@@ -61,7 +60,7 @@
                 </div>
                 <div class="row mb64">
                     <div class="col-6">
-                        <strong>Payment Amount: </strong><span t-esc="xml.get('Total')" /> <!-- t-options="{'widget': 'monetary', 'display_currency': o.currency_id}" -->
+                        <strong>Cantidad pagada: </strong><span t-esc="xml.get('Total')" />  t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"
                      </div>
                     <!-- <div class="col-6" t-if="o.communication">
                         <strong>Memo: </strong><span t-field="o.communication"/>

@@ -156,17 +156,17 @@ class CfdiInvoiceAttachment(models.TransientModel):
 
             ctx = {'create_invoice_ids': create_invoice_ids}
             if existed_attachment:
-                ctx.update({'existed_attachment': '<p>' + '<p></p>'.join(existed_attachment) + '</p>'})
+                ctx.update({'default_existed_attachment': '<p>' + '<p></p>'.join(existed_attachment) + '</p>'})
             if not_imported_attachment:
                 content = ''
                 for attachment, error in not_imported_attachment.items():
-                    content += '<p>' + attachment.name + ':</p> <p><strong style="color:red;">&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;bull; Error : </strong> %s </p>' % (
+                    content += '<p>' + attachment.name + ':</p> <p><strong style="color:red;"> Error : </strong> %s </p>' % (
                         error)
 
-                ctx.update({'not_imported_attachment': content})  # '<p>'+'<p></p>'.join(not_imported_attachment)+'</p>'
+                ctx.update({'default_not_imported_attachment': content})  # '<p>'+'<p></p>'.join(not_imported_attachment)+'</p>'
 
             if imported_attachment:
-                ctx.update({'imported_attachment': '<p>' + '<p></p>'.join(imported_attachment) + '</p>'})
+                ctx.update({'default_imported_attachment': '<p>' + '<p></p>'.join(imported_attachment) + '</p>'})
             return {
                 'name': "Resultado de importación",
                 'view_type': 'form',
@@ -317,7 +317,7 @@ class CfdiInvoiceAttachment(models.TransientModel):
                 if type(taxes) != list:
                     taxes = [taxes]
                 tax_ids  = self.get_tax_from_codes(taxes,'sale',no_imp_tras)
-                      
+
             product_exist = self.get_or_create_product(default_code, product_name, clave_unidad, unit_price, clave_producto, sale_ok=True, purchase_ok=False)
 
             if discount_amount:
@@ -398,7 +398,10 @@ class CfdiInvoiceAttachment(models.TransientModel):
         receptor_data = data.get('Comprobante', {}).get('Receptor', {})
         timbrado_data = data.get('Comprobante', {}).get('Complemento', {}).get('TimbreFiscalDigital', {})
 
-        vendor_uuid = timbrado_data.get('@UUID')
+        try:
+           vendor_uuid = timbrado_data.get('@UUID')
+        except Exception as e:
+           vendor_uuid = timbrado_data[0].get('@UUID')
 
         if vendor_uuid != '':
             vendor_order_exist = invoice_obj.search([('l10n_mx_edi_cfdi_uuid_cusom','=',vendor_uuid.lower())],limit=1)
@@ -928,7 +931,7 @@ class CfdiInvoiceAttachment(models.TransientModel):
                 else:
                     tasa = str(0)
                 tax_exist = tax_obj.search([('impuesto', '=', tax.get('@Impuesto')), ('type_tax_use','=',tax_type), 
-                                            ('l10n_mx_tax_type','=',tax.get('@TipoFactor')), ('amount', '=', tasa), 
+                                            ('l10n_mx_factor_type','=',tax.get('@TipoFactor')), ('amount', '=', tasa), 
                                             ('company_id','=',self.env.company.id)],limit=1)
                 if not tax_exist:
                     raise UserError("La factura contiene impuestos que no han sido configurados. Por favor configure los impuestos primero")
