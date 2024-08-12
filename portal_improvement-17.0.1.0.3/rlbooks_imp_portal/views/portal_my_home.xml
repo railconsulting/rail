@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_home" name="My Portal - improvement" inherit_id="portal.portal_my_home" priority="100">
+        
+        <xpath expr="." position="inside">
+            <link href="/rlbooks_imp_portal/static/src/css/portal_my_home.css" type="text/css" rel="stylesheet"/>
+        </xpath>
+
+    </template>
+
+</odoo>
