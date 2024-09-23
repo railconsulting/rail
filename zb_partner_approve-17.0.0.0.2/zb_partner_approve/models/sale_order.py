@@ -28,6 +28,6 @@ class SaleOrder(models.Model):
 
     def action_confirm(self):
         for order in self:
-            if order.partner_id.state != 'approved':
-                raise UserError("El contacto seleccionado requiere ser aprobado para usarse en esta operación!")
+            if order.partner_id.state != 'aprobado':
+                raise UserError("El contacto debe ser aprobado para confirmar la transacción!")
         return super(SaleOrder, self).action_confirm()

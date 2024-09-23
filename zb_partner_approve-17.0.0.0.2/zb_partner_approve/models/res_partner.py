@@ -26,16 +26,16 @@ from odoo.exceptions import UserError,ValidationError
 class ResPartner(models.Model):
     _inherit = 'res.partner'
     
-    state = fields.Selection([('draft','Draft'),('approved', 'Approved')],string="Approve Status",default="draft",tracking=True)
+    state = fields.Selection([('borrador','Borrador'),('aprobado', 'Aprobado')],string="Estado de Aprobación",default="borrador",tracking=True)
     
     
     def action_verify(self):
         for rec in self:
-            rec.state = 'approved'
+            rec.state = 'aprobado'
                 
     def action_draft(self):
         for rec in self:
-            rec.state = 'draft'
+            rec.state = 'borrador'
 
 
 

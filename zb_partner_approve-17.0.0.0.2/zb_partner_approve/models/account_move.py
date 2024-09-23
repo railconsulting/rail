@@ -27,8 +27,8 @@ class AccountInvoice(models.Model):
 
     def action_post(self):
         for invoice in self:
-            if invoice.partner_id.state != 'approved' and invoice.move_type == 'in_invoice':
-                raise UserError("El contacto seleccionado requiere ser aprobado para usarse en esta operación!")
-            elif invoice.partner_id.state != 'approved':
-                raise UserError("El contacto seleccionado requiere ser aprobado para usarse en esta operación!")
+            if invoice.partner_id.state != 'aprobado' and invoice.move_type == 'in_invoice':
+                raise UserError("El contacto debe ser aprobado para confirmar la transacción!")
+            elif invoice.partner_id.state != 'aprobado':
+                raise UserError("El contacto debe ser aprobado para confirmar la transacción!")
         return super(AccountInvoice, self).action_post()
