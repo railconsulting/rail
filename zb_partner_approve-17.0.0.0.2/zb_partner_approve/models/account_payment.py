@@ -28,5 +28,5 @@ class AccountPayment(models.Model):
     def action_post(self):
         for invoice in self:
             if invoice.partner_id.state != 'approved':
-                raise UserError("The Selected Partner Must be Approved to Confirm the Payment!")
+                raise UserError("El contacto seleccionado requiere ser aprobado para usarse en esta operación!")
         return super(AccountPayment, self).action_post()

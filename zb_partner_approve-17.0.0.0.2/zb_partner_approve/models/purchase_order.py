@@ -28,5 +28,5 @@ class PurchaseOrder(models.Model):
     def button_confirm(self):
         for order in self:
             if order.partner_id.state != 'approved':
-                raise UserError("The Selected Partner Must be Approved to Confirm the Purchase Order!")
+                raise UserError("El contacto seleccionado requiere ser aprobado para usarse en esta operación!")
         return super(PurchaseOrder, self).button_confirm()

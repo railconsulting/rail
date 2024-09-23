@@ -28,5 +28,5 @@ class StockPicking(models.Model):
     def button_validate(self):
         for invoice in self:
             if invoice.partner_id.state != 'approved':
-                raise UserError("The Selected Partner Must be Approved to Validate the Picking!")
+                raise UserError("El contacto seleccionado requiere ser aprobado para usarse en esta operación!")
         return super(StockPicking, self).button_validate()
