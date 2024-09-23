@@ -43,8 +43,8 @@ class ResPartner(models.Model):
                         [(field_vals, '=', vals.get(field_vals))], limit=1)
                     if partner:
                         raise ValidationError(
-                            _("The %s is already"
-                              " used for contact %s.") %
+                            _("El dato %s actualmente"
+                              " se utiliza en el contacto %s.") %
                             (contact_fields.name, partner.name))
             else:
                 res = super(ResPartner, self).create(vals)
@@ -69,8 +69,8 @@ class ResPartner(models.Model):
                         [(field_vals, '=', vals.get(field_vals))], limit=1)
                     if partner:
                         raise ValidationError(
-                            _("The %s is already"
-                              " used for contact %s.") %
+                            _("El dato %s actualmente"
+                              " se utiliza en el contacto %s.") %
                             (contact_fields.name, partner.name))
             else:
                 res = super(ResPartner, self).write(vals)
