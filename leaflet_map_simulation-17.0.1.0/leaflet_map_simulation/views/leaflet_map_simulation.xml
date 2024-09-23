@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.actions.client" id="action_leaflet_map_simulation">
+        <field name="name">Leaflet</field>
+        <field name="tag">leaflet_map_simulation.leafletMap</field>
+    </record>
+
+</odoo>

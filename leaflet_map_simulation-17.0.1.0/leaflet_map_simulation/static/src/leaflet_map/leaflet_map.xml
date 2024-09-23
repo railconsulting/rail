@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="leaflet_map_simulation.leafletMap" owl="1">
+<!--        <button class="btn btn-primary" t-on-click="getGeoLocation">getGeoLocation</button>-->
+        <div id="map" class="h-75"/>
+    </t>
+
+</templates>

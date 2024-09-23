@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+    <menuitem id="leaflet_map_simulation_root" name="Leaflet" sequence="0">
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="leaflet_map_simulation_categ" name="Leaflet"
+                  action="leaflet_map_simulation.action_leaflet_map_simulation"/>
+    </menuitem>
+</odoo>
