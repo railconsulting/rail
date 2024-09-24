@@ -9,7 +9,7 @@
 				<xpath expr="//sheet" position="before">
 					<header>
 						<button id="button_verify" name="action_verify" string="Aprobar" class="btn-primary" invisible = "state == 'Aprobado'" type="object" groups="zb_partner_approve.group_verify_partner"/>
-						<button id="button_set_to_draft" name="action_draft" string="Regresar a Borrador" class="btn-primary" invisible = "state != 'Aprobado'" type="object" groups="zb_partner_approve.group_verify_partner"/>
+						<button id="button_set_to_draft" name="action_draft" string="Regresar a Borrador" class="btn-primary" invisible = "state != 'aprobado'" type="object" groups="zb_partner_approve.group_verify_partner"/>
 						<field name="state" widget="statusbar"/>
 					</header>
 				</xpath>
@@ -22,8 +22,8 @@
             <field name="inherit_id" ref="base.view_partner_tree"/>
             <field name="arch" type="xml">
 				<xpath expr="//field[@name='category_id']" position="after">
-					<button name="action_verify" string="Aprobar" class="btn-primary" type="object" groups="zb_partner_approve.group_verify_partner" invisible = "state == 'Aprobado'" />
-					<field name="state" widget="badge" decoration-danger="state=='Borrador'" decoration-success="state=='Aprobado'" optional="show" />
+					<button name="action_verify" string="Aprobar" class="btn-primary" type="object" groups="zb_partner_approve.group_verify_partner" invisible = "state == 'aprobado'" />
+					<field name="state" widget="badge" decoration-danger="state=='borrador'" decoration-success="state=='aprobado'" optional="show" />
 				</xpath>
            </field>
        	</record>
