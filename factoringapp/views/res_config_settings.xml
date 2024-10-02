@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="res_config_settings_view_form_inherit_account" model="ir.ui.view">
+        <field name="name">res.config.settings.form.inherit.account</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <app name="account" position="inside">
+                <block title="AR Funding" name="factoring_settings">
+                    
+                    <!-- <div class="oe_button_box" name="button_box"> -->
+                        <div>
+                            <p>
+                            Thank you for choosing AR Funding! We’re excited to help you unlock instant working capital directly within your Odoo ERP system.
+                            <br/>
+                            Our seamless integration offers you:
+                            <br/><br/>
+                              <t/>  - Immediate Access to Cash: Convert your invoices into working capital instantly.<br/>
+                              <t/>  - Streamlined Financial Operations: Enjoy a user-friendly, automated process that fits perfectly into your existing Odoo setup.<br/>
+                              <t/>  - Enhanced Cash Flow Management: Improve your financial stability with a reliable and efficient solution.<br/>
+                            <br/>   
+                            Welcome aboard, and we look forward to helping you succeed.
+                            <br/><br/>
+                            We’re here to support your business growth every step of the way. <br/>
+                            If you have any questions or need assistance, you can contact
+                            us directly at 800-756-3386.<br/><br/>
+                            Complete the Onboarding Questionnaire below to get started.
+                            </p>
+                        <button name="%(factoringapp.bizylife_questionnaire_wizard_question_action)d" 
+                        type="action" 
+                        icon="oi-arrow-right" 
+                        class="btn-link" 
+                        string="Onboarding Questionnaire"/>
+                        </div>
+                            <!-- <field name="title" string="hello" widget="statinfo"/> -->
+                    <!-- </div> -->
+                    <!-- <setting string="Default Bank/Cash Account" company_dependent="1" help="The account set here will be the default bank/cash account credited">
+                        <field name="bizylife_default_factoring_bank_account_id" />
+                    </setting> -->
+                    <setting string="Default Liability Account" company_dependent="1" help="The account set here will be the default liability account debited.">
+                        <field name="bizylife_default_factoring_liability_account_id" domain="[('account_type', '=', 'liability_current')]"/>
+                    </setting>
+                    <setting string="AR Funding Partner" company_dependent="1" help="Set the partner record associated with AR Funding.">
+                        <field name="bizylife_factoring_partner_id"/>
+                    </setting>
+                </block>
+            </app>
+        </field>
+    </record>
+
+</odoo>

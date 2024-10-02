@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+<record id="view_res_partner_form_yo" model="ir.ui.view">
+    <field name="name">res.partner.form.yo</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//div[@name='warning_tax']" position="before">
+            <header>
+             <field name="bizylife_customer_approval_status" string="AR Funding Status" readonly="1" invisible="True"/>
+             <field name="bizylife_debtor_approval_status" string="AR Funding Status" readonly="1" invisible="True"/>
+             <button string="Send Debtor for AR Funding Approval" name="send_debtor_for_approval" type="object" invisible="bizylife_customer_approval_status != False or bizylife_debtor_approval_status != False"/>
+            </header>
+        </xpath>
+        <xpath expr="//field[@name='vat']" position="after">
+            <field name="bizylife_debtor_approval_status"/>
+        </xpath>
+    </field>
+</record>
+</odoo>

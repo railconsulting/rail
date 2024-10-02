@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>  
+
+<record id="bizylife_questionnaire_wizard_question_action" model="ir.actions.act_window">
+    <field name="name">Questionnaire Wizard</field>
+    <field name="res_model">questionnaire.wizard.question</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<record id="bizylife_questionnaire_wizard_question_view_tree" model="ir.ui.view">
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="name">questionnaire.wizard.question.tree</field>
+    <field name="model">questionnaire.wizard.question</field>
+    <field name="arch" type="xml">
+        <tree string="Questionnaire Wizard" editable="bottom" create="false" edit="false">
+            <field name="title" readonly="1"/>
+        </tree>
+    </field>
+</record>
+
+<record id="view_bizylife_questionnaire_wizard_question_form" model="ir.ui.view">
+    <field name="name">bizylife.questionnaire.wizard.question.form</field>
+    <field name="model">questionnaire.wizard.question</field>
+    <field name="arch" type="xml">
+        <form string="Questionnaire">
+            <header>
+            <button string="Send Responses to AR Funding" name="send_responses_to_server" type="object"/>
+            </header>
+            <sheet>
+                <group id='mainform'>
+                    <field name="name" invisible="1"/>
+                    <field name="title" readonly="1"/>
+                    <field name="question_type" invisible="1"/>
+                    <field name="response_text" string="Response" invisible="question_type != 'textbox'"/>
+                    <field name="response_dropdown" string="Response" invisible="question_type != 'dropdown'" domain='[("reference", "=", active_id)]'/>
+                    <field name="response_numerical" string="Response" invisible="question_type != 'numerical'"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+    
+<menuitem id="questionnaire_menu_action" parent="base.menu_custom" action="bizylife_questionnaire_wizard_question_action"/>
+
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="confirm_wizard_form">
+            <field name="name">wizard.form</field>
+            <field name="model">bizylife.confirmfactorrequests</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Confirm dialog">
+                    <field name="confirm_message" readonly="1" />
+                    <footer>
+                        <button class="oe_highlight" type="object" name="confirm" string="Confirm" />
+                        <button type="object" name="cancel" string="Cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

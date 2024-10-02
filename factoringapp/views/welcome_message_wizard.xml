@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="welcomemessage_wizard_form">
+            <field name="name">wizard.form</field>
+            <field name="model">bizylife.welcomemessagewizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Confirm dialog">
+                    <field name="dialog_message" readonly="1" />
+                    <footer>
+                        <button class="oe_highlight" type="object" name="redirect_questionnaire" string="Start Onboarding" />
+                        <!-- <button type="object" name="cancel" string="Cancel" /> -->
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

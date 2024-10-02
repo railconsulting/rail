@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="invoice_report_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='payment_term']" position="after">
+            <div t-if="o.partner_id.bizylife_debtor_approval_status == 'approved'" class="oe_structure">
+                For value received, this invoice has been assigned to, owned by and payable to Associated Receivables Funding, Inc. 
+                PO Box 16253, Greenville, SC 29606.  Any offsets, claims, etc. must be reported to Associated Receivables Funding, Inc. immediately 
+                upon receipt of this invoice.
+                <br/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

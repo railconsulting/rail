@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <function model="questionnaire.wizard.question" name="compute_defaults"/>
+
+</data>
+
+    
+
+</odoo>
